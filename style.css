@@ -1,0 +1,90 @@
+body {
+    font-family: 'Comfortaa', cursive, Arial, sans-serif; /* Gunakan font Comfortaa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #6EE7B7, #3B82F6); /* Gradient Miku-esque */
+    color: #333; /* Warna teks default */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="%2300BCD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>') 15 15, auto; /* Cursor khusus berbentuk not musik, biru Miku */
+    text-align: center;
+    user-select: none;
+    position: relative; /* Untuk posisi overlay */
+    overflow: hidden; /* Mencegah elemen keluar dari viewport */
+}
+
+/* Overlay untuk efek latar belakang, seperti partikel atau cahaya */
+.miku-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(102, 231, 183, 0.3), transparent 50%),
+                radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.3), transparent 50%);
+    opacity: 0.8;
+    pointer-events: none; /* Agar tidak menghalangi klik pada body */
+    z-index: 0;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95); /* Sedikit transparan agar latar belakang terlihat */
+    padding: 30px 50px;
+    border-radius: 20px; /* Lebih membulat */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan lebih dalam */
+    position: relative; /* Untuk menempatkan gambar Miku */
+    z-index: 1; /* Pastikan container di atas overlay */
+    max-width: 400px;
+    width: 90%;
+}
+
+.miku-chibi-icon {
+    width: 80px; /* Ukuran gambar Miku */
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    animation: float 3s ease-in-out infinite; /* Animasi mengambang */
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+h1 {
+    color: #00BCD4; /* Warna biru-hijau Miku */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+.counter-display {
+    font-size: 2.5em; /* Lebih besar */
+    margin: 25px 0;
+    color: #007bff; /* Bisa juga warna biru Miku */
+    font-weight: bold;
+    letter-spacing: 2px; /* Jarak antar huruf */
+}
+
+#count {
+    color: #28a745; /* Tetap hijau untuk kontras atau ganti ke biru-Miku yang lebih terang */
+    font-size: 1.8em; /* Lebih besar dari teks 'Jumlah Ketukan' */
+    background: linear-gradient(45deg, #00BCD4, #3B82F6); /* Gradient untuk angka */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.1s ease-out; /* Animasi saat diklik */
+    display: inline-block; /* Agar transform bekerja */
+}
+
+#count.pop {
+    transform: scale(1.1); /* Efek pop saat diklik */
+}
+
+
